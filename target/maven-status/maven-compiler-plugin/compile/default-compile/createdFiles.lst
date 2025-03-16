@@ -1,0 +1,15 @@
+br/com/payments/adapters/input/rest/config/OpenApiConfig.class
+br/com/payments/adapters/input/rest/dto/TransactionRequestDto.class
+br/com/payments/core/domain/valueObjects/Document.class
+br/com/payments/adapters/output/mongodb/mapper/TransactionDbMapper.class
+br/com/payments/core/ports/output/TransactionRepositoryPort.class
+br/com/payments/core/usecases/TransactionCreatorUseCase.class
+br/com/payments/core/ports/input/TransactionCreatorPort.class
+br/com/payments/adapters/input/rest/mapper/TransactionRestMapper.class
+br/com/payments/adapters/input/rest/TransactionController.class
+br/com/payments/adapters/output/mongodb/persistence/entities/TransactionEntity.class
+br/com/payments/adapters/output/mongodb/persistence/TransactionMongoRepository.class
+br/com/payments/core/domain/valueObjects/Email.class
+br/com/payments/core/domain/valueObjects/UserTypeEnum.class
+br/com/payments/PaymentsApplication.class
+br/com/payments/adapters/output/mongodb/TransactionRepository.class
