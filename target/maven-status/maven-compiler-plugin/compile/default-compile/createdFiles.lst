@@ -7,7 +7,9 @@ br/com/payments/core/usecases/TransactionCreatorUseCase.class
 br/com/payments/core/ports/input/TransactionCreatorPort.class
 br/com/payments/adapters/input/rest/mapper/TransactionRestMapper.class
 br/com/payments/adapters/input/rest/TransactionController.class
+br/com/payments/core/domain/entities/Transaction.class
 br/com/payments/adapters/output/mongodb/persistence/entities/TransactionEntity.class
+br/com/payments/core/domain/entities/User.class
 br/com/payments/adapters/output/mongodb/persistence/TransactionMongoRepository.class
 br/com/payments/core/domain/valueObjects/Email.class
 br/com/payments/core/domain/valueObjects/UserTypeEnum.class

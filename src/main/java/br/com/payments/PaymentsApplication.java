@@ -2,10 +2,8 @@ package br.com.payments;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @SpringBootApplication
-@EnableMongoRepositories(basePackages = "br.com.payments.adapters.output.mongodb.persistence")
 public class PaymentsApplication {
 
 	public static void main(String[] args) {

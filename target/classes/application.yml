@@ -1,0 +1,5 @@
+spring:
+  server.port: 8081
+  application.name: payments
+
+  profiles.active: ${SPRING_PROFILES_ACTIVE:dev}

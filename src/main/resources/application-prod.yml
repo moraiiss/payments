@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${PAYMENTS_MYSQL_DB_HOST}:${PAYMENTS_MYSQL_DB_PORT}/${PAYMENTS_MYSQL_DB_NAME}
+    username: ${PAYMENTS_MYSQL_DB_USER}
+    password: ${PAYMENTS_MYSQL_DB_PASSWORD}
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    properties:
+      hibernate.show_sql: false
+      hibernate.format_sql: false
