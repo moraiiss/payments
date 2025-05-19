@@ -1,12 +1,10 @@
 package br.com.payments.core.usecases;
 
 import br.com.payments.core.domain.entities.Person;
-import br.com.payments.core.domain.vo.PersonTypeEnum;
+import br.com.payments.core.domain.exceptions.BusinessException;
 import br.com.payments.core.ports.input.PersonCreatorPort;
 import br.com.payments.core.ports.output.PersonRepositoryPort;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class PersonCreatorUseCase implements PersonCreatorPort {
@@ -19,12 +17,18 @@ public class PersonCreatorUseCase implements PersonCreatorPort {
 
     @Override
     public Person createPerson(Person person) {
+
+        final var foundPersonByDocument = personRepositoryPort.findByDocument(person.document());
+        final var foundPersonByEmail = personRepositoryPort.findByEmail(person.email());
+
+        if (foundPersonByDocument.isPresent()) {
+            throw new BusinessException("Person already registered with this document!");
+        }
+
+        if (foundPersonByEmail.isPresent()) {
+            throw new BusinessException("Person already registered with this email!");
+        }
+
         return personRepositoryPort.save(person);
     }
-
-    @Override
-    public List<Person> listPersons(PersonTypeEnum personTypeEnum) {
-        return personRepositoryPort.findAllByType(personTypeEnum);
-    }
-
 }

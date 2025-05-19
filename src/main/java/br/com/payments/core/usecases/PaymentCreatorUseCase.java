@@ -20,19 +20,19 @@ public class PaymentCreatorUseCase implements PaymentCreatorPort {
     @Override
     public Payment createPayment(Payment payment) {
         Person payer = personRepositoryPort
-            .findById(payment.payer())
-            .orElseThrow(() -> new PersonNotFoundException(payment.payer()));
+            .findById(payment.getPayer())
+            .orElseThrow(() -> new PersonNotFoundException(payment.getPayer()));
 
         Person payee = personRepositoryPort
-            .findById(payment.payee())
-            .orElseThrow(() -> new PersonNotFoundException(payment.payee()));
+            .findById(payment.getPayee())
+            .orElseThrow(() -> new PersonNotFoundException(payment.getPayee()));
 
         if (payer.type() == PersonTypeEnum.SELLER) {
             throw new IllegalArgumentException("Payer must be a consumer");
         }
 
-        final var updatedPayer = payer.debit(payment.value());
-        final var updatedPayee = payee.credit(payment.value());
+        final var updatedPayer = payer.debit(payment.getValue());
+        final var updatedPayee = payee.credit(payment.getValue());
 
         personRepositoryPort.save(updatedPayer);
         personRepositoryPort.save(updatedPayee);

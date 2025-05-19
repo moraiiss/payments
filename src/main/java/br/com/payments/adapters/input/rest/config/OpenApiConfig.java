@@ -15,6 +15,6 @@ public class OpenApiConfig {
             .title("Backend Challenge")
             .version("1.0.0")
             .description("")
-            .contact(new Contact().name("Junior Morais").email("contact@codelightyear.com")));
+            .contact(new Contact().name("Junior Morais").email("demoraisjunior@gmail.com")));
     }
 }

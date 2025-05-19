@@ -40,4 +40,20 @@ public class PersonRepository implements PersonRepositoryPort {
 
         return PersonDbMapper.toList(persons);
     }
+
+    @Override
+    public Optional<Person> findByEmail(String emailAddress) {
+        final Optional<PersonEntity> person = personJpaRepository.findByEmail(emailAddress);
+
+        return person.map(PersonDbMapper::toDomain);
+    }
+
+    @Override
+    public Optional<Person> findByDocument(String documentNumber) {
+        final Optional<PersonEntity> person = personJpaRepository.findByDocument(documentNumber);
+
+        return person.map(PersonDbMapper::toDomain);
+    }
+
+
 }

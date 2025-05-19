@@ -5,7 +5,7 @@ import br.com.payments.core.domain.entities.Person;
 
 public class PersonRestMapper {
     public static Person toDomain(final PersonRequestDto personRequestDto) {
-        return Person.of(personRequestDto.name(), personRequestDto.document(),
-            personRequestDto.type(), personRequestDto.email());
+        return Person.of(personRequestDto.name(), personRequestDto.document(), personRequestDto.type(),
+            personRequestDto.email());
     }
 }

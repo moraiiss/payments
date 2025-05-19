@@ -12,6 +12,9 @@ public interface PersonRepositoryPort {
 
     Optional<Person> findById(Long id);
 
-    List<Person> findAllByType(PersonTypeEnum personTypeEnum);
+    Optional<Person> findByEmail(String emailAddress);
 
+    Optional<Person> findByDocument(String documentNumber);
+
+    List<Person> findAllByType(PersonTypeEnum personTypeEnum);
 }
