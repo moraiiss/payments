@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+import static br.com.payments.adapters.output.db.mapper.PersonDbMapper.*;
+
 @Repository
 public class PersonRepository implements PersonRepositoryPort {
 
@@ -22,9 +24,9 @@ public class PersonRepository implements PersonRepositoryPort {
 
     @Override
     public Person save(Person person) {
-        final PersonEntity savedPerson = personJpaRepository.save(PersonDbMapper.toEntity(person));
+        final PersonEntity savedPerson = personJpaRepository.save(toEntity(person));
 
-        return PersonDbMapper.toDomain(savedPerson);
+        return toDomain(savedPerson);
     }
 
     @Override
@@ -38,7 +40,7 @@ public class PersonRepository implements PersonRepositoryPort {
     public List<Person> findAllByType(PersonTypeEnum personTypeEnum) {
         final List<PersonEntity> persons = personJpaRepository.findAllByType(personTypeEnum);
 
-        return PersonDbMapper.toList(persons);
+        return toList(persons);
     }
 
     @Override
